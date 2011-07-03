@@ -10,7 +10,7 @@ public class PageNavigator {
     private WebDriver d;
     private final static String URL_TEMPLATE = "%s://%s:%s/%s";
     private String protocol = System.getProperty("server.protocol", "http");
-    private String host = System.getProperty("server.host", "10.46.178.35");
+    private String host = System.getProperty("server.host", "10.46.178.34");
     private String port = System.getProperty("server.port", "8080");
 
     public PageNavigator(WebDriverFacade facade) throws InvocationTargetException, InstantiationException, IllegalAccessException {

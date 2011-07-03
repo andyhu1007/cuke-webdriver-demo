@@ -1,18 +1,15 @@
 package com.zte.appstore.cucumber.pages;
 
-import com.zte.appstore.cucumber.WebDriverFacade;
-import org.openqa.selenium.WebDriver;
+import com.zte.appstore.cucumber.PageAction;
 import org.openqa.selenium.support.PageFactory;
 
-import java.lang.reflect.InvocationTargetException;
-
 public abstract class BasePage {
-    protected final WebDriver d;
+    protected final PageAction page;
 
-    protected BasePage(WebDriverFacade facade) throws InvocationTargetException, InstantiationException, IllegalAccessException {
-        d = facade.getWebDriver();
+    public BasePage(PageAction page) {
+        this.page = page;
         assertOnCurrentPage();
-        PageFactory.initElements(d, this);
+        PageFactory.initElements(page.getWebDriver(), this);
     }
 
     protected abstract void assertOnCurrentPage();

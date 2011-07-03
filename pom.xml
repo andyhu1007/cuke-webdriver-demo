@@ -3,8 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.zte.appstore</groupId>
+    <groupId>com.wo.store</groupId>
     <artifactId>cucumber</artifactId>
     <version>1.0</version>
 
@@ -23,7 +22,7 @@
         <repository>
             <id>snapshots</id>
             <name>Nexus Managed Snapshot Repository</name>
-            <url>http://localhost:4444/nexus/content/groups/zte_snapshots/</url>
+            <url>http://10.46.144.222:4444/nexus/content/groups/zte_snapshots/</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -65,6 +64,23 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <mkdir dir="target\surefire-reports\TEST-features"/>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>cuke4duke</groupId>
                 <artifactId>cuke4duke-maven-plugin</artifactId>
                 <version>0.4.4</version>
@@ -83,6 +99,7 @@
                     <cucumberArgs>
                         <cucumberArg>--backtrace</cucumberArg>
                         <cucumberArg>--color</cucumberArg>
+                        <cucumberArg>--tags ~@wip</cucumberArg>
                         <cucumberArg>--verbose</cucumberArg>
                         <cucumberArg>--format</cucumberArg>
                         <cucumberArg>pretty</cucumberArg>
@@ -96,8 +113,6 @@
                         <cucumberArg>target/usage.txt</cucumberArg>
                         <cucumberArg>--require</cucumberArg>
                         <cucumberArg>${basedir}/target/test-classes</cucumberArg>
-                        <cucumberArg>--require</cucumberArg>
-                        <cucumberArg>${basedir}/src/test/ruby</cucumberArg>
                     </cucumberArgs>
                     <gems>
                         <gem>install cuke4duke --version 0.4.4</gem>
@@ -145,6 +160,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
+            <version>2.0b3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-ie-driver</artifactId>
             <version>2.0b3</version>
             <scope>test</scope>
         </dependency>
