@@ -37,6 +37,8 @@ The Steps to Setup
 
         Colorful console output in Windows: https://github.com/aslakhellesoy/wac
 
+        Run specific features, e.g. mvn integration-test -Dcucumber.features="features\call_step.feature features\second.feature"
+
 
 Note
 
