@@ -7,8 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 import java.lang.reflect.InvocationTargetException;
 
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertThat;
+import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class ProductPage extends BasePage {
 
@@ -31,6 +32,6 @@ public class ProductPage extends BasePage {
 
     @Override
     protected void assertOnCurrentPage() {
-        assertEquals("沃商店，精彩随心选", page.getTitle());
+        assertThat(page.getTitle(), containsString("沃商店，精彩随心选"));
     }
 }

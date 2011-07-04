@@ -24,7 +24,8 @@ The Steps to Setup
 
     Run
 
-        1. First Time: mvn integration-test -Dcucumber.installGems=true
+        1. mvn integration-test     (mvn clean integration-test if clean is required)
+        2. First Time: mvn integration-test -Dcucumber.installGems=true    (install required gems)
 
 
     Others
@@ -42,3 +43,4 @@ Note
     1. picocontainer as dependency injection framework
     2. Use mvn idea:idea to generate IntelliJ IDEA project file
     3. Use mvn eclipse:eclipse to generate Eclipse project file
+    4. antrun create TEST-features directory is required in Windows

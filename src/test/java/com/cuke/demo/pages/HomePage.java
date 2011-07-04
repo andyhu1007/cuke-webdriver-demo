@@ -13,7 +13,7 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 public class HomePage extends BasePage {
-    public static final String PATH = "WebPortal/indexPage_portalPage.do";
+    public static final String PATH = "";
     private static final String productCssSelectorFormatter = "a[title='%s']";
 
     @FindBy(css = "ol#freerank")
