@@ -3,56 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.wo.store</groupId>
-    <artifactId>cucumber</artifactId>
+
+    <groupId>cuke-webdriver-demo</groupId>
+    <artifactId>cuke-webdriver-demo</artifactId>
     <version>1.0</version>
 
     <repositories>
         <repository>
-            <id>internal</id>
-            <name>Nexus Managed Internal Repository</name>
-            <url>http://10.46.144.222:4444/nexus/content/groups/internal/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <id>cukes</id>
+            <url>http://cukes.info/maven</url>
         </repository>
-        <repository>
-            <id>snapshots</id>
-            <name>Nexus Managed Snapshot Repository</name>
-            <url>http://10.46.144.222:4444/nexus/content/groups/zte_snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>internal</id>
-            <url>http://10.46.144.222:4444/nexus/content/groups/internal/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>snapshots</id>
-            <url>http://10.46.144.222:4444/nexus/content/groups/zte_snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
+            <id>cukes</id>
+            <url>http://cukes.info/maven</url>
         </pluginRepository>
     </pluginRepositories>
 

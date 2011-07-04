@@ -1,19 +1,22 @@
-package com.zte.appstore.cucumber.pages;
+package com.cuke.demo.pages;
 
-import com.zte.appstore.cucumber.PageAction;
-import cuke4duke.annotation.I18n.ZH_CN.当;
+import com.cuke.demo.PageActionFacade;
+import cuke4duke.annotation.I18n;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class SearchBoxPage extends BasePage {
+
     @FindBy(css = "input.search-input")
     private WebElement searchInput;
 
-    public SearchBoxPage(PageAction pageAction) {
-        super(pageAction);
+    public SearchBoxPage(PageActionFacade facade) throws InvocationTargetException, InstantiationException, IllegalAccessException {
+        super(facade);
     }
 
-    @当("^我用关键字“(.+)”搜索应用$")
+    @I18n.ZH_CN.当("^我用关键字“(.+)”搜索应用$")
     public void searchApp(String keyword) {
         searchInput.sendKeys(keyword);
         searchInput.submit();

@@ -1,9 +1,11 @@
-package com.zte.appstore.cucumber.pages;
+package com.cuke.demo.pages;
 
-import com.zte.appstore.cucumber.PageAction;
+import com.cuke.demo.PageActionFacade;
 import cuke4duke.annotation.I18n;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.lang.reflect.InvocationTargetException;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
@@ -13,8 +15,8 @@ public class ProductPage extends BasePage {
     @FindBy(css = "a.quick-down-load")
     private WebElement quickDownloadButton;
 
-    public ProductPage(PageAction pageAction) {
-        super(pageAction);
+    public ProductPage(PageActionFacade facade) throws InvocationTargetException, IllegalAccessException, InstantiationException {
+        super(facade);
     }
 
     @I18n.ZH_CN.那么("^我可以看到快速下载按钮$")

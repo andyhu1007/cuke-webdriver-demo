@@ -1,1 +1,44 @@
-Refer to most of README in https://github.com/exceedhl/petstore
+Description
+
+    A demo project for using: cuke4duke, WebDriver, maven.
+
+The patterns applied
+
+    1. Page Model
+    2. Bot Style: com.cuke.demo.PageAction
+
+The Steps to Setup
+
+    Prerequisites
+
+        1. JDK1.6
+        2. Maven
+        3. Firefox  (Default using firefox driver)
+
+    Configuration
+
+        environment:
+        1. GEM_HOME : %MAVEN_LOCAL_REPOSITORY%\.jruby
+        2. GEM_PATH : %MAVEN_LOCAL_REPOSITORY%\.jruby
+
+
+    Run
+
+        1. First Time: mvn integration-test -Dcucumber.installGems=true
+
+
+    Others
+
+        If you are behind network proxy, please set Http Proxy
+            1. HTTP_PROXY
+            2. HTTP_PROXY_USER
+            3. HTTP_PROXY_PASS
+
+        Colorful console output in Windows: https://github.com/aslakhellesoy/wac
+
+
+Note
+
+    1. picocontainer as dependency injection framework
+    2. Use mvn idea:idea to generate IntelliJ IDEA project file
+    3. Use mvn eclipse:eclipse to generate Eclipse project file

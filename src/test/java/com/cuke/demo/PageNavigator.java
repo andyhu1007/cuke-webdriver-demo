@@ -1,20 +1,20 @@
-package com.zte.appstore.cucumber;
+package com.cuke.demo;
 
-import com.zte.appstore.cucumber.pages.HomePage;
+import com.cuke.demo.pages.HomePage;
 import cuke4duke.annotation.I18n;
-import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.InvocationTargetException;
 
 public class PageNavigator {
-    private WebDriver d;
+    private final PageAction page;
+
     private final static String URL_TEMPLATE = "%s://%s:%s/%s";
     private String protocol = System.getProperty("server.protocol", "http");
     private String host = System.getProperty("server.host", "10.46.178.34");
     private String port = System.getProperty("server.port", "8080");
 
-    public PageNavigator(WebDriverFacade facade) throws InvocationTargetException, InstantiationException, IllegalAccessException {
-        d = facade.getWebDriver();
+    public PageNavigator(PageActionFacade facade) throws InvocationTargetException, InstantiationException, IllegalAccessException {
+        page = facade.getPageAction();
     }
 
     @I18n.ZH_CN.假如("^我在主页$")
@@ -23,7 +23,6 @@ public class PageNavigator {
     }
 
     private void visit(String path) {
-        d.get(String.format(URL_TEMPLATE, protocol, host, port, path));
+        page.get(String.format(URL_TEMPLATE, protocol, host, port, path));
     }
-
 }

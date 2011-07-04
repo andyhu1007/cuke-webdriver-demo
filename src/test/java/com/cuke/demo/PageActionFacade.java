@@ -1,4 +1,4 @@
-package com.zte.appstore.cucumber;
+package com.cuke.demo;
 
 import cuke4duke.annotation.After;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class WebDriverFacade {
+public class PageActionFacade {
     private static Constructor<WebDriver> driverConstructor = getDriverConstructor();
 
     @SuppressWarnings("unchecked")
@@ -20,20 +20,20 @@ public class WebDriverFacade {
         }
     }
 
-    private WebDriver browser;
+    private PageAction page;
 
-    public WebDriver getWebDriver() throws InvocationTargetException, IllegalAccessException, InstantiationException {
-        if (browser == null) {
-            browser = driverConstructor.newInstance();
+    public PageAction getPageAction() throws InvocationTargetException, IllegalAccessException, InstantiationException {
+        if (page == null) {
+            page = new PageAction(driverConstructor.newInstance());
         }
-        return browser;
+        return page;
     }
 
     @After
     public void closeBrowser() throws IllegalAccessException, InvocationTargetException, InstantiationException {
-        if (browser != null) {
-            browser.close();
-            browser.quit();
+        if (page != null) {
+            page.close();
+            page.quit();
         }
     }
 }

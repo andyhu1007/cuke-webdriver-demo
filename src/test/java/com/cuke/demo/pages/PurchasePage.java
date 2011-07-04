@@ -1,13 +1,14 @@
-package com.zte.appstore.cucumber.pages;
+package com.cuke.demo.pages;
 
-import com.zte.appstore.cucumber.PageAction;
+import com.cuke.demo.PageActionFacade;
 import cuke4duke.annotation.I18n;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.fail;
 
 public class PurchasePage extends BasePage {
 
@@ -25,8 +26,8 @@ public class PurchasePage extends BasePage {
     @FindBy(css = confirmButtonCssLocator)
     private WebElement confirmButton;
 
-    public PurchasePage(PageAction pageAction) {
-        super(pageAction);
+    public PurchasePage(PageActionFacade facade) throws InvocationTargetException, IllegalAccessException, InstantiationException {
+        super(facade);
     }
 
     @I18n.ZH_CN.当("^我在确认付款页面选择适配手机品牌“(.+)”$")
