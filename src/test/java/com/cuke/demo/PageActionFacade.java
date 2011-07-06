@@ -20,7 +20,7 @@ public class PageActionFacade {
         }
     }
 
-    private PageAction page;
+    private static PageAction page;
 
     public PageAction getPageAction() throws InvocationTargetException, IllegalAccessException, InstantiationException {
         if (page == null) {
@@ -34,6 +34,7 @@ public class PageActionFacade {
         if (page != null) {
             page.close();
             page.quit();
+            page = null;
         }
     }
 }
