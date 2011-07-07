@@ -17,7 +17,7 @@ The Steps to Setup
 
     Configuration
 
-        environment:
+        environment:  (Only needed when install gems through jruby directly)
         1. GEM_HOME : %MAVEN_LOCAL_REPOSITORY%\.jruby
         2. GEM_PATH : %MAVEN_LOCAL_REPOSITORY%\.jruby
 
